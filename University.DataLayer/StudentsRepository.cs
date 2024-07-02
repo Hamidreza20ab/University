@@ -187,9 +187,9 @@ namespace University.DataLayer
             {
                 con.Open();
                 string qry = @"
-                    SELECT COUNT(Students.ID) AS StudentCount
-                    FROM dbo.Students
-                    WHERE dbo.Students.ID = @StudentID";
+                    SELECT COUNT(StudentID) AS StudentCount
+                    FROM dbo.Register
+                    WHERE StudentID = @StudentID";
                 using (SqlCommand cmd = new SqlCommand(qry, con))
                 {
                     cmd.Parameters.AddWithValue("@StudentID", StudentID);

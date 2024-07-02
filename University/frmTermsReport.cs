@@ -37,10 +37,10 @@ namespace University
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            ReportViewer reportViewer = new ReportViewer("TermsReport");
-            reportViewer.TermID = Convert.ToInt32(comboTermTitle.SelectedValue);
+            //ReportViewer reportViewer = new ReportViewer("TermsReport");
+            //reportViewer.TermID = Convert.ToInt32(comboTermTitle.SelectedValue);
 
-            reportViewer.Show();
+            //reportViewer.Show();
         }
     }
 }

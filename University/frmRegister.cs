@@ -30,11 +30,14 @@ namespace University
 
         private void frmRegister_Load(object sender, EventArgs e)
         {
+            
             dgvCourses.AutoGenerateColumns = false;
             dgvStudents.AutoGenerateColumns = false;
             dgvStudents.DataSource = StudentsRepo.GetStudents(CourseId);
             dgvCourses.DataSource = CoursesRepo.GetAll();
             comboStudentName.DataSource = StudentsRepo.GetStudentName();
+            if (dgvCourses.RowCount == 0)
+                btnSaveStudent.Enabled = false;
         }
 
         private void dgvCourses_SelectionChanged(object sender, EventArgs e)
@@ -46,21 +49,23 @@ namespace University
 
         private void btnSaveStudent_Click(object sender, EventArgs e)
         {
-            int CourseCapacity = Convert.ToInt32(dgvCourses.CurrentRow.Cells["dgvCourseCapacity"].Value);
-            int RegisterCount = dgvStudents.Rows.Count;
-            if (!RegisterRepo.IsValidRegister(CourseId, (int)comboStudentName.SelectedValue))
-            {
-                MessageBox.Show("این دانجشو از قبل در این دوره ثبت نام کرده است");
-                return;
-            }
-            if (RegisterCount <= CourseCapacity)
-            {
-                RegisterRepo.Add(CourseId, Convert.ToInt32(comboStudentName.SelectedValue));
-            }
-            else
-            {
-                MessageBox.Show("ظرفیت دوره تکمیل شده است");
-            }
+            
+                int CourseCapacity = Convert.ToInt32(dgvCourses.CurrentRow.Cells["dgvCourseCapacity"].Value);
+                int RegisterCount = dgvStudents.Rows.Count;
+                if (!RegisterRepo.IsValidRegister(CourseId, (int)comboStudentName.SelectedValue))
+                {
+                    MessageBox.Show("این دانجشو از قبل در این دوره ثبت نام کرده است");
+                    return;
+                }
+                if (RegisterCount <= CourseCapacity)
+                {
+                    RegisterRepo.Add(CourseId, Convert.ToInt32(comboStudentName.SelectedValue));
+                }
+                else
+                {
+                    MessageBox.Show("ظرفیت دوره تکمیل شده است");
+                }
+            
 
             dgvStudents.DataSource = StudentsRepo.GetStudents(CourseId);
 

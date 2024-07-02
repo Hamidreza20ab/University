@@ -109,19 +109,21 @@ namespace University
 
         private void btnDeleteCourse_Click(object sender, EventArgs e)
         {
-
-            string LessonName = Convert.ToString(dgvCourse.CurrentRow.Cells["dgvLessonName"].Value);
-            string TeacherName = Convert.ToString(dgvCourse.CurrentRow.Cells["dgvTeacherName"].Value);
-            int CourseId = Convert.ToInt32(dgvCourse.CurrentRow.Cells["dgvCourseID"].Value);
-            if (courseRepo.CanDelete(CourseId))
+            if (dgvCourse.CurrentRow.Cells != null)
             {
-                MessageBox.Show("شما مجاز به حذف این دوره نیستید. ابتدا ثبت نام های مربوطه را حذف کنید، سپس مجددا تلاش کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign);
-                return;
-            }
-            if (MessageBox.Show($@"آیا از حذف درس '{LessonName}' با استاد '{TeacherName}' اطمینان دارید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                courseRepo.Delete(CourseId);
-                dgvCourse.DataSource = courseRepo.GetAll();
+                string LessonName = Convert.ToString(dgvCourse.CurrentRow.Cells["dgvLessonName"].Value);
+                string TeacherName = Convert.ToString(dgvCourse.CurrentRow.Cells["dgvTeacherName"].Value);
+                int CourseId = Convert.ToInt32(dgvCourse.CurrentRow.Cells["dgvCourseID"].Value);
+                if (courseRepo.CanDelete(CourseId))
+                {
+                    MessageBox.Show("شما مجاز به حذف این دوره نیستید. ابتدا ثبت نام های مربوطه را حذف کنید، سپس مجددا تلاش کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign);
+                    return;
+                }
+                if (MessageBox.Show($@"آیا از حذف درس '{LessonName}' با استاد '{TeacherName}' اطمینان دارید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    courseRepo.Delete(CourseId);
+                    dgvCourse.DataSource = courseRepo.GetAll();
+                }
             }
         }
 

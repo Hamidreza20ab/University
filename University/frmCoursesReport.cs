@@ -50,11 +50,11 @@ namespace University
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            ReportViewer reportViewer = new ReportViewer("CourseReport");
-            reportViewer.LessonID = Convert.ToInt32(comboLessonName.SelectedValue);
-            reportViewer.TermID = Convert.ToInt32(comboTermTitle.SelectedValue);
-            reportViewer.TeacherID = Convert.ToInt32(comboTeacherName.SelectedValue);
-            reportViewer.Show();
+            //ReportViewer reportViewer = new ReportViewer("CourseReport");
+            //reportViewer.LessonID = Convert.ToInt32(comboLessonName.SelectedValue);
+            //reportViewer.TermID = Convert.ToInt32(comboTermTitle.SelectedValue);
+            //reportViewer.TeacherID = Convert.ToInt32(comboTeacherName.SelectedValue);
+            //reportViewer.Show();
         }
     }
 }
