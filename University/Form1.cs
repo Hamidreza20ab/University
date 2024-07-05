@@ -500,12 +500,18 @@ namespace University
 
         private void btnDeleteTeacher_Click(object sender, EventArgs e)
         {
-            string name = Convert.ToString(dgvTeachers.CurrentRow.Cells["dgvTeachersFullName"].Value);
-            int teacherId = Convert.ToInt32(dgvTeachers.CurrentRow.Cells["dgvTeachersID"].Value);
+            string name;
+            int teacherId;
             if (dgvTeachers.CurrentRow == null || dgvTeachers.SelectedRows.Count == 0)
             {
                 MessageBox.Show("ردیفی انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+            else
+            {
+                name = Convert.ToString(dgvTeachers.CurrentRow.Cells["dgvTeachersFullName"].Value);
+                teacherId = Convert.ToInt32(dgvTeachers.CurrentRow.Cells["dgvTeachersID"].Value);
+
             }
             if (teachersRepo.CanDelete(teacherId))
             {
@@ -639,12 +645,16 @@ namespace University
 
         private void btnDeleteLesson_Click(object sender, EventArgs e)
         {
-            string name = Convert.ToString(dgvLessons.CurrentRow.Cells["dgvLessonName"].Value);
-            int lessonId = Convert.ToInt32(dgvLessons.CurrentRow.Cells["dgvLessonId"].Value);
+            string name;
+            int lessonId;
             if (dgvLessons.CurrentRow == null || dgvLessons.SelectedRows.Count == 0)
             {
                 MessageBox.Show("ردیفی انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }else
+            {
+                name = Convert.ToString(dgvLessons.CurrentRow.Cells["dgvLessonName"].Value);
+                lessonId = Convert.ToInt32(dgvLessons.CurrentRow.Cells["dgvLessonId"].Value);
             }
             if (lessonsRepo.CanDelete(lessonId))
             {
@@ -1031,13 +1041,19 @@ namespace University
 
         private void btnDeleteSessionTime_Click(object sender, EventArgs e)
         {
-            string StartTime = Convert.ToString(dgvSessionTime.CurrentRow.Cells["dgvSessionStartTime"].Value);
-            string EndTime = Convert.ToString(dgvSessionTime.CurrentRow.Cells["dgvSessionEndTime"].Value);
-            int sessionTimeId = Convert.ToInt32(dgvSessionTime.CurrentRow.Cells["dgvSessiontimeID"].Value);
+            string StartTime;
+            string EndTime;
+            int sessionTimeId;
             if (dgvSessionTime.CurrentRow == null || dgvSessionTime.SelectedRows.Count == 0)
             {
                 MessageBox.Show("ردیفی انتخاب نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+            else
+            {
+                StartTime = Convert.ToString(dgvSessionTime.CurrentRow.Cells["dgvSessionStartTime"].Value);
+                EndTime = Convert.ToString(dgvSessionTime.CurrentRow.Cells["dgvSessionEndTime"].Value);
+                sessionTimeId = Convert.ToInt32(dgvSessionTime.CurrentRow.Cells["dgvSessiontimeID"].Value);
             }
             if (sessionsTimeRepo.CanDelete(sessionTimeId))
             {

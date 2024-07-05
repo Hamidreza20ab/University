@@ -144,7 +144,7 @@ namespace University.DataLayer
                 con.Open();
                 string qry = @"
                     SELECT COUNT(TermID) AS CountTermID 
-                    FROM Terms
+                    FROM Courses
                     WHERE TermID = @TermID";
                 using (SqlCommand cmd = new SqlCommand(qry, con))
                 {

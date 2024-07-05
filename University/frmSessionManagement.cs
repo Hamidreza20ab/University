@@ -170,6 +170,10 @@ namespace University
                 MessageBox.Show("لطفا زمان جلسه را وارد کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (dgvCourses.CurrentRow == null || dgvCourses.SelectedRows.Count == 0) {
+                MessageBox.Show("دوره ای وجود ندارد. ابتدا یک دوره تعریف کنید");
+                return;
+            }
             int ClassIdentity = Convert.ToInt32(comboClass.SelectedValue);
             // int DayOfWeekIdentity =Convert.ToInt32( comboDayOfWeek.SelectedIndex+1);
             int SessionTimeIdentity = Convert.ToInt32(comboSessionTime.SelectedValue);

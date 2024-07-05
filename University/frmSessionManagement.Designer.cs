@@ -73,6 +73,7 @@ namespace University
             this.dgvCourses.Location = new System.Drawing.Point(706, 0);
             this.dgvCourses.Name = "dgvCourses";
             this.dgvCourses.ReadOnly = true;
+            this.dgvCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCourses.Size = new System.Drawing.Size(525, 655);
             this.dgvCourses.TabIndex = 0;
             this.dgvCourses.SelectionChanged += new System.EventHandler(this.dgvCourses_SelectionChanged);
@@ -131,6 +132,7 @@ namespace University
             this.dgvSessions.Location = new System.Drawing.Point(0, 378);
             this.dgvSessions.Name = "dgvSessions";
             this.dgvSessions.ReadOnly = true;
+            this.dgvSessions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSessions.Size = new System.Drawing.Size(706, 277);
             this.dgvSessions.TabIndex = 1;
             this.dgvSessions.SelectionChanged += new System.EventHandler(this.dgvSessions_SelectionChanged);

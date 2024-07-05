@@ -116,9 +116,9 @@ namespace University.DataLayer
             {
                 con.Open();
                 string qry = @"
-                    SELECT COUNT(SessionsTime.ID) AS CountSessionTime
-                    FROM dbo.SessionsTime
-                    WHERE SessionTime.ID=@SessionTimeID";
+                    SELECT COUNT(SessionTimeID) AS CountSessionTime
+                    FROM dbo.Sessions
+                    WHERE SessionTimeID=@SessionTimeID";
                 using (SqlCommand cmd = new SqlCommand(qry, con))
                 {
                     cmd.Parameters.AddWithValue("@SessionTimeID", SessionTimeID);
